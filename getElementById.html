@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="id1">
+        <div id="div1">
+            <div id="div2"> Hello </div>
+            <div id ="div3">Hi</div>
+        </div>
+        <div id ="div4">Hello World</div>
+    </div>
+</body>
+
+</html>
+<script>
+
+    const getId = (element, id) => {
+
+        
+
+        if (element.id === id) {
+
+            return element;
+
+        }
+
+        if (element.children.length) {
+
+            let result = undefined;
+
+            for (let i = 0; i < element.children.length; i++) {
+
+                // console.log(element);
+
+                result = result || getId(element.children[i], id);
+
+            }
+
+            return result;
+
+        }
+
+    }
+
+    console.log(getId(document.body, "div2").innerHTML);
+</script>
